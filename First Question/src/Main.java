@@ -16,8 +16,8 @@ public class Main {
     public static void three() {
         BinaryTree BT = new BinaryTree();
         System.out.println();
-        BT.Import("Data1.txt");
-        BT.Export("Data2.txt");
+        BT.Import("textFiles/Data1.txt");
+        BT.Export("textFiles/Data2.txt");
     }
 
     public static void seven() {
@@ -39,8 +39,8 @@ public class Main {
     public static void eight() {
         BinaryTree BT = new BinaryTree();
         System.out.println();
-        Node root = BT.Import("Data1.txt");
+        Node root = BT.Import("textFiles/Data1.txt");
         BinaryTreeDrawing.paint(root);
-        BT.Export("Data2.txt");
+        BT.Export("textFiles/Data2.txt");
     }
 }
