@@ -95,38 +95,4 @@ public class Packer_1 {
             this.y = y;
         }
     }
-
-    public static void main(String[] args) {
-        int bigRectWidth = 70;
-        int bigRectHeight = 60;
-        List<Rectangle> smallRects = new ArrayList<>();
-        smallRects.add(new Rectangle(20, 10));
-        smallRects.add(new Rectangle(20, 10));
-        smallRects.add(new Rectangle(30, 10));
-        smallRects.add(new Rectangle(30, 50));
-        smallRects.add(new Rectangle(40, 30));
-        smallRects.add(new Rectangle(40, 20));
-
-        int totalSmallArea = smallRects.stream()
-                .mapToInt(rect -> rect.width * rect.height)
-                .sum();
-
-        for (int i = 1; i <= totalSmallArea; i++) {
-            if (totalSmallArea % i == 0) {
-                Packer_1 packer = new Packer_1(i, totalSmallArea / i);
-                List<List<Placement>> solutions = packer.fit(smallRects);
-                if (solutions.size() > 0) {
-                    System.out.println("The small rectangles can fill the big rectangle in the following ways for the width " + i + " and height " + (totalSmallArea / i));
-                    for (int solutionIndex = 0; solutionIndex < solutions.size(); solutionIndex++) {
-                        System.out.println("Solution " + (solutionIndex + 1) + ":");
-                        for (Placement placement : solutions.get(solutionIndex)) {
-                            System.out.println("Rectangle " + placement.rect.width + "x" + placement.rect.height + " at (" + placement.x + ", " + placement.y + ")");
-                        }
-                    }
-                } else {
-                    System.out.println("The small rectangles cannot fill the big rectangle for the width " + i + " and height " + (totalSmallArea / i));
-                }
-            }
-        }
-    }
 }
